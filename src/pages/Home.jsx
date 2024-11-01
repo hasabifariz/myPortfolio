@@ -169,7 +169,7 @@ const Home = () => {
     <div className="grid grid-cols-1 lg:grid-cols-3 h-screen" >
       {/* Left Panel */}
       <div className="relative p-8 lg:p-12 h-screen bg-slate-50 shadow-inner rounded-md">
-        <div className="sticky top-0 space-y-4">
+        <div className="lg:sticky lg:top-0 space-y-4">
           {/* Introduction */}
           <div className="">
             <pre className="text-lg">Hello,</pre>
@@ -247,7 +247,7 @@ const Home = () => {
               {techStack.map((category) => (
                 <div key={category.category} className="space-y-4">
                   <h3 className="text-xs font-medium text-base-content/50">{category.category}</h3>
-                  <div className="grid md:grid-cols-6 grid-cols-4 gap-4">
+                  <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-4 xl:grid-cols-6 gap-4">
                     {category.items.map((tech) => (
                       <div
                         key={tech.name}
@@ -290,22 +290,22 @@ const Home = () => {
       </div>
 
       {/* Right Panel */}
-      <div className="lg:col-span-2 md:overflow-y-auto snap-y snap-mandatory" style={{ scrollBehavior: 'smooth' }}>
+      <div className="lg:col-span-2 lg:overflow-y-auto snap-y snap-mandatory" style={{ scrollBehavior: 'smooth' }}>
         <div className="space-y-12">
 
           {/* About Section */}
           <section ref={aboutRef} id='about' className="space-y-6 min-h-screen snap-start p-8 lg:p-12 shadow-inner rounded-md">
             <h2 className="text-2xl font-bold">About Me</h2>
             <div className='px-10 pt-10'>
-              <p className="text-lg leading-relaxed text-base-content/80">
+              <p className="text-lg leading-relaxed text-base-content/80 text-justify">
                 A frontend developer with over two years of experience specializing in creating user-friendly web applications. My journey began with a solid foundation in HTML, CSS, and JavaScript, which paved the way for my expertise in ReactJS. I have worked on a diverse range of projects in industries such as fintech, e-commerce, and insurance, allowing me to develop a well-rounded skill set and a deep understanding of user needs.
               </p>
               <br />
-              <p className="text-lg leading-relaxed text-base-content/80">
+              <p className="text-lg leading-relaxed text-base-content/80 text-justify">
                 I excel at translating design concepts into functional, visually appealing interfaces, utilizing UI libraries like MaterialUI and PrimeReact to enhance user experience. My experience includes integrating APIs to create seamless interactions and collaborating with backend teams to ensure efficient data management. I value open communication and teamwork, striving to align technical solutions with business objectives.
               </p>
               <br />
-              <p className="text-lg leading-relaxed text-base-content/80">
+              <p className="text-lg leading-relaxed text-base-content/80 text-justify">
                 I am committed to producing high-quality, maintainable code and continually seek to improve my skills by exploring new technologies and best practices. My goal is to develop applications that are not only effective but also enjoyable for users, and I look forward to tackling new challenges that allow me to innovate and grow as a developer.
               </p>
             </div>
@@ -351,8 +351,8 @@ const Home = () => {
                     </div>
                     <div className="card-actions justify-start mt-4">
                       {
-                        project.tools.map((tool) => (
-                          <div className="badge badge-outline">{tool}</div>
+                        project.tools.map((tool, index) => (
+                          <div key={index} className="badge badge-outline">{tool}</div>
                         ))
                       }
                     </div>
