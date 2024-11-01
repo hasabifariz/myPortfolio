@@ -294,7 +294,7 @@ const Home = () => {
         <div className="space-y-12">
 
           {/* About Section */}
-          <section ref={aboutRef} id='about' className="space-y-6 min-h-screen snap-start p-8 lg:p-12 shadow-inner rounded-md">
+          <section ref={aboutRef} id='about' className=" space-y-6 min-h-screen snap-start p-8 lg:p-12 shadow-inner rounded-md">
             <h2 className="text-2xl font-bold">About Me</h2>
             <div className='px-10 pt-10'>
               <p className="text-lg leading-relaxed text-base-content/80 text-justify">
@@ -311,53 +311,59 @@ const Home = () => {
             </div>
           </section>
 
-          <section ref={experienceRef} id='experience' className="space-y-6 min-h-screen snap-start p-8 lg:p-12 shadow-inner rounded-md">
+          <section ref={experienceRef} id='experience' className="space-y-6 bg-slate-100 min-h-screen snap-start p-8 lg:p-12 shadow-inner rounded-md">
             <h2 className="text-2xl font-bold">Experience</h2>
             {experience.map((job, index) => (
-              <div
-                key={index}
-                className="p-6 rounded-md bg-base-100 hover:bg-base-200 transition-colors cursor-pointer group"
-              >
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="font-bold text-2xl">{job.title}</h3>
-                    <p className="text-base-content/70">{job.company}</p>
-                    <p className="text-sm text-base-content/60 mt-2">{job.year}</p>
+              <>
+                <div
+                  key={index}
+                  className="p-6 shadow-md rounded-md bg-slate-50 hover:bg-slate-300 transition-colors cursor-pointer group"
+                >
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 className="font-bold text-2xl">{job.title}</h3>
+                      <p className="text-base-content/70">{job.company}</p>
+                      <p className="text-sm text-base-content/60 mt-2">{job.year}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+                {/* <div className='divider'></div> */}
+              </>
             ))}
           </section>
 
 
-          <section ref={projectsRef} id='projects' className="space-y-6 min-h-screen snap-start p-8 lg:p-12 bg-slate-100 shadow-inner rounded-md">
+          <section ref={projectsRef} id='projects' className="preview space-y-6 min-h-screen snap-start p-8 lg:p-12  shadow-inner rounded-md">
             <h2 className="text-2xl font-bold">Featured Projects</h2>
             <div className="grid gap-6">
               {projects.map((project, index) => (
-                <div
-                  key={index}
-                  className="card bg-base-100 hover:bg-slate-200 transition-colors cursor-pointer group lg:mx-10"
-                >
-                  <div className="card-body">
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <h3 className="card-title">{project.name}</h3>
-                        <p className="text-md">{project.role}</p>
-                        <p className="text-base-content/70 mt-2">
-                          {project.desc}
-                        </p>
+                <>
+                  <div
+                    key={index}
+                    className="card shadow-md bg-base-100 hover:bg-base-200 transition-colors cursor-pointer group lg:mx-10"
+                  >
+                    <div className="card-body">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <h3 className="card-title">{project.name}</h3>
+                          <p className="text-md">{project.role}</p>
+                          <p className="text-base-content/70 mt-2">
+                            {project.desc}
+                          </p>
+                        </div>
+                        {/* <ExternalLink className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" /> */}
                       </div>
-                      {/* <ExternalLink className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" /> */}
-                    </div>
-                    <div className="card-actions justify-start mt-4">
-                      {
-                        project.tools.map((tool, index) => (
-                          <div key={index} className="badge badge-outline">{tool}</div>
-                        ))
-                      }
+                      <div className="card-actions justify-start mt-4">
+                        {
+                          project.tools.map((tool, index) => (
+                            <div key={index} className="badge badge-outline">{tool}</div>
+                          ))
+                        }
+                      </div>
                     </div>
                   </div>
-                </div>
+                  {/* <div className='divider'></div> */}
+                </>
               ))}
             </div>
           </section>
