@@ -1,4 +1,5 @@
 // src/pages/components/Experience.jsx
+import { motion } from 'framer-motion';
 import React from 'react';
 
 const Experience = ({ experienceRef }) => {
@@ -33,11 +34,24 @@ const Experience = ({ experienceRef }) => {
       className="space-y-6 bg-slate-100 min-h-screen snap-start p-8 lg:p-12 shadow-inner rounded-md"
     >
       <h2 className="text-2xl font-bold">Experience</h2>
-      <div className="grid gap-6">
+      <motion.div className="grid gap-6"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+      >
         {experience.map((job, index) => (
-          <div
+          <motion.div
+            whileHover={{
+              scale: 1.05,
+              rotate: 1,
+              boxShadow: "0px 10px 20px rgba(0,0,0,0.3)",
+            }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             key={index}
-            className="card shadow-lg rounded-md bg-gray-50 transition-colors cursor-pointer group"
+            className="card shadow-lg rounded-md bg-gray-50 transition-colors cursor-default group"
           >
             <div className="card-body">
               <div className="flex justify-between items-start">
@@ -51,9 +65,9 @@ const Experience = ({ experienceRef }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

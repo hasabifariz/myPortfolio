@@ -7,6 +7,7 @@ import KLSMenu from '../../assets/images/kls menu.png'
 import UIMaxOSP from '../../assets/images/UIMaxOSP.jpeg'
 import UIMaxISP from '../../assets/images/UIMax.jpeg'
 import ITAM from '../../assets/images/ITAM.jpeg'
+import { motion } from 'framer-motion'
 
 const Projects = ({ projectsRef }) => {
   const projects = [
@@ -86,9 +87,13 @@ const Projects = ({ projectsRef }) => {
       <div className="grid gap-6">
         {projects.map((project, index) => (
 
-          <div
+          <motion.div
             key={index}
-            className="card shadow-lg bg-base-100 transition-colors cursor-pointer group lg:mx-10"
+            className="card shadow-lg bg-base-100 transition-colors cursor-default group lg:mx-10"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
           >
             <div className="card-body">
               <div className="flex justify-between items-start">
@@ -123,7 +128,7 @@ const Projects = ({ projectsRef }) => {
               </div>
 
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 

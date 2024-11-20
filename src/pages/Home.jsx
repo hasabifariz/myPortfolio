@@ -29,11 +29,17 @@ const Home = () => {
 
   const [activeSection, setActiveSection] = useState('');
 
+  const divRef = useRef(null);
   const aboutRef = useRef(null);
   const projectsRef = useRef(null);
   const experienceRef = useRef(null);
 
   useEffect(() => {
+
+    if (divRef.current) {
+      divRef.current.focus(); // Focus the div when the component mounts
+    }
+
     const sections = [
       { ref: aboutRef, id: 'about' },
       { ref: projectsRef, id: 'projects' },
@@ -95,7 +101,7 @@ const Home = () => {
 
 
 
-  
+
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 h-screen" >
@@ -200,7 +206,7 @@ const Home = () => {
       </div>
 
       {/* Right Panel */}
-      <div className="lg:col-span-2 lg:overflow-y-auto snap-y snap-mandatory" style={{ scrollBehavior: 'smooth' }}>
+      <div className="lg:col-span-2 lg:overflow-y-auto snap-y snap-mandatory focus:outline-none" style={{ scrollBehavior: 'smooth' }} ref={divRef}>
         <div className="">
 
           {/* About Section */}
